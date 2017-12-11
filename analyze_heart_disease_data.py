@@ -1,5 +1,5 @@
 
-
+from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.model_selection import RandomizedSearchCV
@@ -53,6 +53,19 @@ def hidden_layer_generator(number_of_tuples = 1000, max_layers = 15, max_nodes_p
 def run_some_simple_models():
     """This function runs a bunch of sklearn models.  Nothing too fancy..."""
 
+
+
+
+    # Model_00 - 10-nearest-neighbot
+    Model_01 = KNeighborsClassifier(n_neighbors =10)
+    Model_01.fit(trainX_fully_preprocessed, trainY_binary)
+    test_predict_01 = Model_01.predict(testX_fully_preprocessed)
+    print_results("NearestNeighbors",testY_binary, test_predict_01)
+
+
+
+
+
     # Model_01 - a linear classifier
     Model_01 = SGDClassifier(random_state=20)
     Model_01.fit(trainX_fully_preprocessed, trainY_binary)
@@ -70,6 +83,19 @@ def run_some_simple_models():
     Model_03.fit(trainX_fully_preprocessed, trainY_binary)
     test_predict_03 = Model_03.predict(testX_fully_preprocessed)
     print_results("AdaBoostClassifier",testY_binary, test_predict_03)
+
+
+    # Model_04 - a shallow neural network classifier
+    Model_04 = MLPClassifier(solver='lbfgs',
+                             alpha=1e-5,
+                             hidden_layer_sizes=(10),
+                             random_state=20)
+    Model_04.fit(trainX_fully_preprocessed, trainY_binary)
+    test_predict_04 = Model_04.predict(testX_fully_preprocessed)
+    print_results("MLPClassifier hidden_layer_sizes=(10)",testY_binary, test_predict_04)
+
+
+
 
     # Model_04 - a deep neural network classifier
     Model_04 = MLPClassifier(solver='lbfgs',
@@ -139,4 +165,4 @@ def run_fancy_model(n_iter=20):
 
 if __name__=="__main__":
     run_some_simple_models()
-    run_fancy_model(n_iter=200)
+    #run_fancy_model(n_iter=200)
