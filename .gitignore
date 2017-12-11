@@ -101,3 +101,9 @@ ENV/
 .mypy_cache/
 *.data
 scratch_file.py
+.idea/Heart-Disease-Machine-Learning.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/other.xml
+.idea/workspace.xml
+.idea/vcs.xml
