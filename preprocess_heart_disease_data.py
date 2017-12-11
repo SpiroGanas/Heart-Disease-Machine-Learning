@@ -50,6 +50,7 @@ import sklearn.model_selection
 import sklearn.preprocessing
 import sklearn.pipeline
 import numpy as np
+from load_heart_disease_data import load_heart_disease_dataframe
 
 # turn off warning messages that were messing up the output
 import warnings
@@ -65,8 +66,10 @@ def Preprocess_Heart_Disease_Data():
     TARGET = ["diagnosis"]
 
     # load the csv file created by load_heart_disease_df.py
-    heart_disease_df = pd.read_csv(os.path.join(os.getcwd(),"heart_disease_df.csv" ),index_col=0, header=0 )
-
+    try:
+        heart_disease_df = pd.read_csv(os.path.join(os.getcwd(),"heart_disease_df.csv" ),index_col=0, header=0 )
+    except IOError:
+        heart_disease_df = load_heart_disease_dataframe()
 
 
 
@@ -146,5 +149,10 @@ def Preprocess_Heart_Disease_Data():
     return trainX_fully_preprocessed, trainY_binary, testX_fully_preprocessed, testY_binary
 
 
+
+
+if __name__=='__main__':
+    trainX_fully_preprocessed, trainY_binary, testX_fully_preprocessed, testY_binary = Preprocess_Heart_Disease_Data()
+    print("The data has been preprocessed!")
 
 
