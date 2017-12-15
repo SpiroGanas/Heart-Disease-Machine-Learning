@@ -39,7 +39,7 @@ def hidden_layer_generator(number_of_tuples = 1000, max_layers = 15, max_nodes_p
        This is used as a parameter when applying the RandomizedSearchCV to a MLPClassifier.
     """
     MyTuples = []
-    for tuple_counter in range(1 ,number_of_tuples):
+    for tuple_counter in range(1 ,number_of_tuples+1):
         number_of_layers = randint(1, max_layers)
         temp = []
         for x in range(1, number_of_layers + 1):
