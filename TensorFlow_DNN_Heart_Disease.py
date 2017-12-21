@@ -16,7 +16,7 @@ import tensorflow as tf
 from sklearn.metrics import  f1_score
 
 
-from analyze_heart_disease_data import print_results, hidden_layer_generator
+from sklearn_heart_disease_models import print_results
 
 
 
