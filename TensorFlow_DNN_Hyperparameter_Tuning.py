@@ -14,7 +14,7 @@ import tensorflow as tf
 
 import preprocess_heart_disease_data
 from TensorFlow_DNN_Heart_Disease import MyDNN
-from analyze_heart_disease_data import hidden_layer_generator
+from sklearn_heart_disease_models import hidden_layer_generator
 
 
 
