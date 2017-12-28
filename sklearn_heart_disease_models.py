@@ -4,7 +4,7 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import confusion_matrix, f1_score
+from sklearn.metrics import confusion_matrix, f1_score, roc_auc_score
 from random import randint
 
 
@@ -29,6 +29,9 @@ def print_results(model_name,testY_binary, test_predict):
     print()
     f1 = f1_score(testY_binary, test_predict)
     print(model_name + " F1 Score: {:.3f}".format(f1))
+    area_under_curve = roc_auc_score(testY_binary, test_predict)
+    print(model_name + " ROC Area Under the Curve: {:.3f}".format(area_under_curve))
+
     print("####################################")
     print()
 
