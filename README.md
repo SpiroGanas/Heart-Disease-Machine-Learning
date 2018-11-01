@@ -1,8 +1,15 @@
 # Heart-Disease-Machine-Learning
-sklearn machine learning models applied to the UCI Heart Disease data set.
+sklearn and TensorFlow machine learning models applied to the UCI Heart Disease data set.
   
 The heart disease data set is from: https://archive.ics.uci.edu/ml/datasets/heart+Disease
-  
+
+
+[TensorFlow_Estimator_API_Version.py](https://github.com/SpiroGanas/Heart-Disease-Machine-Learning/blob/master/TensorFlow_Estimator_API_Version.py) is my most recent work.  It uses TensorFlows new Estimator API to run a DNNClassifier on the data.  This is a "better" implementation, because the Estimator API makes it easy to use TensorBoard to monitor training.  It also makes it easy to train on multiple machines or on the Google Cloud Machine Learning platform.
+
+
+
+ ### Older Code
+
 [load_heart_disease_data.py](https://github.com/SpiroGanas/Heart-Disease-Machine-Learning/blob/master/load_heart_disease_data.py) is a script that downloads four csv files from the UCI website into the local working directory.  It merges the data into a single pandas dataframe, adds column headers, and (optionally) saves the data to a single csv file.
   
 [preprocess_heart_disease_data.py](https://github.com/SpiroGanas/Heart-Disease-Machine-Learning/blob/master/preprocess_heart_disease_data.py) pre-processes the data by:
